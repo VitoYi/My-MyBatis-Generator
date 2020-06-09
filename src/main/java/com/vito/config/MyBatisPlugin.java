@@ -23,7 +23,6 @@ public class MyBatisPlugin extends PluginAdapter {
     @Override
     public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean hasLombok = Boolean.parseBoolean(getProperties().getProperty("hasLombok", "false"));
-        System.out.println("hasLombok" + hasLombok);
         if (hasLombok) {
             // 添加domain的import
             topLevelClass.addImportedType("lombok.Data");
