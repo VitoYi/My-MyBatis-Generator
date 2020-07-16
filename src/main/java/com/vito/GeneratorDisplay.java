@@ -1,4 +1,4 @@
-package com.vito.mybatis.utils;
+package com.vito;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
