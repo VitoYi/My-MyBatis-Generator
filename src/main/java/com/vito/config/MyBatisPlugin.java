@@ -76,14 +76,13 @@ public class MyBatisPlugin extends PluginAdapter {
     public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn,
                                        IntrospectedTable introspectedTable, ModelClassType modelClassType) {
         boolean isAutoIncrement = introspectedColumn.isAutoIncrement();
-        if (!isAutoIncrement)
-            return false;
-
-        //添加 domain 的 import
-        topLevelClass.addImportedType("javax.persistence.GeneratedValue");
-        topLevelClass.addImportedType("javax.persistence.GenerationType");
-        //添加注解
-        field.addJavaDocLine("@GeneratedValue(strategy = GenerationType.IDENTITY)");
+        if (isAutoIncrement) {
+            //添加 domain 的 import
+            topLevelClass.addImportedType("javax.persistence.GeneratedValue");
+            topLevelClass.addImportedType("javax.persistence.GenerationType");
+            //添加注解
+            field.addJavaDocLine("@GeneratedValue(strategy = GenerationType.IDENTITY)");
+        }
         return true;
     }
 
