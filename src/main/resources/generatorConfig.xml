@@ -20,7 +20,7 @@
 
         <!-- 通用mapper所在目录 -->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.vito.my.mapper.MyMapper"/>
+            <property name="mappers" value="${myMapper-path}"/>
             <property name="forceAnnotation" value="false"/>
         </plugin>
 
