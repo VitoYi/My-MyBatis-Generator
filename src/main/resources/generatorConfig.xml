@@ -14,7 +14,7 @@
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
 
         <!--lombok-->
-        <plugin type="com.vito.config.MyBatisPlugin">
+        <plugin type="${myBatisPlugin-path}">
             <property name="hasLombok" value="true"/>
         </plugin>
 
@@ -41,13 +41,13 @@
 
 
         <!-- 对应生成的pojo所在包 -->
-        <javaModelGenerator targetPackage="${domain}" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="${domain}" targetProject="${domain-targetProject}"/>
 
         <!-- 对应生成的mapper所在目录 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="${mapper-xml}" targetProject="${mapper-xml-targetProject}"/>
 
         <!-- 配置mapper对应的java映射 -->
-        <javaClientGenerator targetPackage="${mapper-interface}" targetProject="src/main/java" type="XMLMAPPER"/>
+        <javaClientGenerator targetPackage="${mapper-interface}" targetProject="${mapper-interface-targetProject}" type="XMLMAPPER"/>
 
         <!-- 数据库表 -->
         <table tableName="%"></table>
